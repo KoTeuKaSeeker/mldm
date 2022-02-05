@@ -1,5 +1,4 @@
 
-var mass_1, mass_2;
 
 /*
     Определяет, является ли символ буквой
@@ -51,6 +50,23 @@ function checkMessage(str, id) {
 }
 
 /*
+    Возвращает массивы, в которые ввелись данные из строчек, а также элемент,
+    куда будет выводиться выходной результат
+*/
+function getStrings(string1Id, string2Id, outStringId) {
+    let a = document.getElementById(string1Id);
+    let b = document.getElementById(string2Id);
+    let outResult = document.getElementById(outStringId);
+
+    let mass1 = checkMessage(a, 1);
+    if (mass1 == false) return false;
+    let mass2 = checkMessage(b, 2);
+    if (mass2 == false) return false;
+
+    return [mass1, mass2, outResult];
+}
+
+/*
     Считает количество элементов element в массиве mass
 */
 function countElements(mass, element) {
@@ -66,8 +82,7 @@ function countElements(mass, element) {
 function removeRepetitions(mass) {
     for (let x = 0; x < mass.length; x++)
         for (let y = 0; y < mass.length; y++)
-            if (y != x && mass[y] == mass[x])
-            {
+            if (y != x && mass[y] == mass[x]) {
                 mass.splice(y, 1);
                 y--;
             }
@@ -75,17 +90,54 @@ function removeRepetitions(mass) {
 }
 
 /*
-    Основная функция считывания данных и вызова второстепенных функций
+    Выполняет пересечение двух массивов
+ */
+function intersects(mass1, mass2)
+{
+    let mass3 = [];
+    for(let x = 0; x < mass1.length; x++)
+        for(let y = 0; y < mass2.length; y++)
+            if(mass1[x] == mass2[y])
+            {
+                mass3.push(mass1[x]);
+                break;
+            }
+    return mass3;
+}
+
+/*
+    Выполняет объединение над двумя массивами
+ */
+function merge(mass1, mass2) {
+    return removeRepetitions(mass1.concat(mass2));
+}
+
+
+/*
+    Выполняет пересечение над данными, введёнными в поля на странице
 */
-function calculate() {
-    let a = document.getElementById('mass1');
-    let b = document.getElementById('mass2');
-    let outResult = document.getElementById('outResult');
+function calculateIntersects() {
+    let data = getStrings('mass1', 'mass2', 'outResult');
 
-    mass_1 = checkMessage(a, 1);
-    if (mass_1 == false) return;
-    mass_2 = checkMessage(b, 2);
-    if (mass_2 == false) return;
+    let mass_1 = data[0];
+    let mass_2 = data[1];
+    let outResult = data[2];
 
-    outResult.innerText = removeRepetitions(mass_1.concat(mass_2));
+    //Пересечение
+    outResult.innerText = intersects(mass_1, mass_2);
+}
+
+/*
+    Выполняет объединение над данными, введёнными в поля на странице
+*/
+function calculateMerge()
+{
+    let data = getStrings('mass1', 'mass2', 'outResult');
+
+    let mass_1 = data[0];
+    let mass_2 = data[1];
+    let outResult = data[2];
+
+    //Симметрическая разность
+    outResult.innerText = merge(mass_1, mass_2);
 }
