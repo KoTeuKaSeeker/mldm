@@ -23,8 +23,8 @@
                 </tr>
 
                 <tr>
-                    <td><input type="button" value="Симметрическая разность" onclick="calculate();"></td>
-                    <td><input type="button" value="Пересечение" onclick="calculate();"></td>
+                    <td><input type="button" class="button1" value="Симметрическая разность" onclick="calculate();"></td>
+                    <td><input type="button" class="button1" value="Пересечение" onclick="calculate();"></td>
                 </tr>
 
                <!-- <tr>
