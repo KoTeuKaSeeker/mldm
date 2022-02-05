@@ -90,6 +90,24 @@ function removeRepetitions(mass) {
 }
 
 /*
+    Выполняет дополнение двух множеств
+ */
+function addition(mass1, mass2)
+{
+    let mass3 = mass1.length > mass2.length ? mass1 : mass2; //Большее множество
+    let massMin = mass1.length < mass2.length ? mass1 : mass2; //Меньшее множество
+
+    for(let x = 0; x < mass3.length; x++)
+        if(countElements(massMin, mass3[x]) > 0)
+        {
+            mass3.splice(x, 1);
+            x--;
+        }
+
+    return mass3;
+}
+
+/*
     Выполняет пересечение двух массивов
  */
 function intersects(mass1, mass2)
@@ -128,6 +146,21 @@ function merge(mass1, mass2) {
     return removeRepetitions(mass1.concat(mass2));
 }
 
+/*
+    Выполняет дополнение над данными, введёнными в поля на странице
+*/
+function calculateAddition()
+{
+    let data = getStrings('mass1', 'mass2', 'outResult');
+    if(data == false) return;
+
+    let mass_1 = data[0];
+    let mass_2 = data[1];
+    let outResult = data[2];
+
+    //Дополнение
+    outResult.innerText = addition(mass_1, mass_2);
+}
 
 /*
     Выполняет пересечение над данными, введёнными в поля на странице
