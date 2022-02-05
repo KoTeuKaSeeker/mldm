@@ -106,6 +106,22 @@ function intersects(mass1, mass2)
 }
 
 /*
+    Выолняет симметрическую разность над двумя массивами
+ */
+function symmetricDifference(mass1, mass2)
+{
+    let mass3 = [];
+    for(let x = 0; x < mass1.length; x++)
+        if(countElements(mass2, mass1[x]) == 0)
+            mass3.push(mass1[x]);
+
+    for(let x = 0; x < mass2.length; x++)
+        if(countElements(mass1, mass2[x]) == 0)
+            mass3.push(mass2[x]);
+    return mass3;
+}
+
+/*
     Выполняет объединение над двумя массивами
  */
 function merge(mass1, mass2) {
@@ -118,6 +134,7 @@ function merge(mass1, mass2) {
 */
 function calculateIntersects() {
     let data = getStrings('mass1', 'mass2', 'outResult');
+    if(data == false) return;
 
     let mass_1 = data[0];
     let mass_2 = data[1];
@@ -128,16 +145,33 @@ function calculateIntersects() {
 }
 
 /*
-    Выполняет объединение над данными, введёнными в поля на странице
-*/
-function calculateMerge()
+    Выполняет симметричную разность над данными, введёнными в поля на странице
+ */
+function calculateSymmetricDifference()
 {
     let data = getStrings('mass1', 'mass2', 'outResult');
+    if(data == false) return;
 
     let mass_1 = data[0];
     let mass_2 = data[1];
     let outResult = data[2];
 
     //Симметрическая разность
+    outResult.innerText = symmetricDifference(mass_1, mass_2);
+}
+
+/*
+    Выполняет объединение над данными, введёнными в поля на странице
+*/
+function calculateMerge()
+{
+    let data = getStrings('mass1', 'mass2', 'outResult');
+    if(data == false) return;
+
+    let mass_1 = data[0];
+    let mass_2 = data[1];
+    let outResult = data[2];
+
+    //Объединение
     outResult.innerText = merge(mass_1, mass_2);
 }

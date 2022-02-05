@@ -24,7 +24,8 @@
 
                 <tr>
                     <td><input type="button" class="button1" value="Пересечение" onclick="calculateIntersects();"></td>
-                    <td><input type="button" class="button1" value="Симметрическая разность" onclick="calculateMerge();"></td>
+                    <td><input type="button" class="button1" value="Объединение" onclick="calculateMerge();"></td>
+                    <td><input type="button" class="button1" value="Симметрическая разность" onclick="calculateSymmetricDifference();"></td>
                 </tr>
 
                <!-- <tr>
