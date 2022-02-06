@@ -79,14 +79,6 @@ function checkMessage(str, id, format) {
     let errorMessage = '';
     if (validateString(str)) {
         mass = str.value.split(' ');
-
-        /*
-        let result = validateWords(mass);
-        if (!result[0]) {
-            alert('В массиве ' + id + ' cлова введены не правельно. Ошибка в ' + result[1]);
-            return false;
-        }
-         */
         if (checkWordsFormat(mass, format)) {
             result = true;
         } else {
@@ -159,6 +151,7 @@ function addition(mass1, mass2) {
      */
 
     let mass3 = mass1;
+    removeRepetitions(mass3);
     for (let x = 0; x < mass3.length; x++)
         if (countElements(mass2, mass3[x]) > 0) {
             mass3.splice(x, 1);
@@ -273,7 +266,7 @@ function calculateMerge() {
 }
 
 
-var format = 'bcib'
+var format = 'c'
 
 /*
     Основная функция где происходят вычисления
@@ -294,6 +287,9 @@ function calculate(id) {
             break;
         case 3:
             data[2].innerText = addition(data[0], data[1]); //Дополнение
+            break;
+        case 4:
+            data[2].innerText = addition(data[1], data[0]); //Дополнение (наоборот)
             break;
         default:
             return;

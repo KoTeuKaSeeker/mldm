@@ -1,3 +1,4 @@
+/*
 .button1 {
     font-weight: 100;
     color: white;
@@ -12,4 +13,24 @@
 .button1:active {
     background: rgb(22,55,165);
     box-shadow: 0 3px rgb(22,55,165) inset;
+}
+ */
+
+.button1
+{
+    padding: 5px 10px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #6695B9;
+    border: none;
+    border-radius: 5px;
+}
+
+.button1:hover {background-color: #49789C}
+
+.button1:active {
+    background-color: #346387;
 }

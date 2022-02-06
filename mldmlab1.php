@@ -29,7 +29,11 @@
 
                 <tr>
                     <td><input type="button" class="button1" value="Пересечение" onclick="calculate(2);"></td>
-                    <td><input type="button" class="button1" value="Дополнение" onclick="calculate(3);"></td>
+                    <td><input type="button" class="button1" value="Дополнение (A - B)" onclick="calculate(3);"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="button" class="button1" value="Дополнение (B - A)" onclick="calculate(4);"></td>
                 </tr>
             </table>
         </form>
