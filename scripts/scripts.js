@@ -4,7 +4,7 @@
     Определяет, является ли символ буквой
 */
 function checkSymbol(sym) {
-    return (sym >= 'a' && sym <= 'z');
+    return ((sym >= 'a') && (sym <= 'z'));
 }
 
 
@@ -51,21 +51,19 @@ function checkSymbolFormat(sym, symFormat) {
 /*
     Проверяет, совподает ли слово word формату format
 */
-function checkWordFormat(word, format)
-{
-    if(word.length != format.length)
+function checkWordFormat(word, format) {
+    if (word.length != format.length)
         return false;
 
-    for(let x = 0; x < word.length; x++)
-        if(!checkSymbolFormat(word[x], format[x]))
+    for (let x = 0; x < word.length; x++)
+        if (!checkSymbolFormat(word[x], format[x]))
             return false;
     return true;
 }
 
-function checkWordsFormat(words, format)
-{
-    for(let x = 0; x < words.length; x++)
-        if(!checkWordFormat(words[x], format))
+function checkWordsFormat(words, format) {
+    for (let x = 0; x < words.length; x++)
+        if (!checkWordFormat(words[x], format))
             return false;
     return true;
 }
@@ -89,11 +87,11 @@ function checkMessage(str, id, format) {
             return false;
         }
          */
-        if(checkWordsFormat(mass, format)) {
+        if (checkWordsFormat(mass, format)) {
             result = true;
         } else {
             errorMessage += 'Массив ' + id + ' имеет неподходящий формат. Формат должен быть вида ' + format +
-                  '. Здесь c - цифра, b - буква, i - чётная цифра, j - нечётная цифра\n\n';
+                '. Здесь c - цифра, b - буква, i - чётная цифра, j - нечётная цифра\n\n';
         }
     } else
         errorMessage += 'Массив ' + id + ' не должен быть\n\n';
@@ -116,7 +114,7 @@ function getStrings(string1Id, string2Id, outStringId, format) {
     let result2 = checkMessage(b, 2, format);
     if (result2[1] == false) result = false;
 
-    if(result == false)
+    if (result == false)
         alert(result1[2] + result2[2]);
 
     return [result1[0], result2[0], outResult, result];
@@ -148,14 +146,21 @@ function removeRepetitions(mass) {
 /*
     Выполняет дополнение двух множеств
  */
-function addition(mass1, mass2)
-{
+function addition(mass1, mass2) {
+    /*
     let mass3 = mass1.length >= mass2.length ? mass1 : mass2; //Большее множество
     let massMin = mass1.length < mass2.length ? mass1 : mass2; //Меньшее множество
 
-    for(let x = 0; x < mass3.length; x++)
-        if(countElements(massMin, mass3[x]) > 0)
-        {
+    for (let x = 0; x < mass3.length; x++)
+        if (countElements(massMin, mass3[x]) > 0) {
+            mass3.splice(x, 1);
+            x--;
+        }
+     */
+
+    let mass3 = mass1;
+    for (let x = 0; x < mass3.length; x++)
+        if (countElements(mass2, mass3[x]) > 0) {
             mass3.splice(x, 1);
             x--;
         }
@@ -165,13 +170,11 @@ function addition(mass1, mass2)
 /*
     Выполняет пересечение двух массивов
  */
-function intersects(mass1, mass2)
-{
+function intersects(mass1, mass2) {
     let mass3 = [];
-    for(let x = 0; x < mass1.length; x++)
-        for(let y = 0; y < mass2.length; y++)
-            if(mass1[x] == mass2[y])
-            {
+    for (let x = 0; x < mass1.length; x++)
+        for (let y = 0; y < mass2.length; y++)
+            if (mass1[x] == mass2[y]) {
                 mass3.push(mass1[x]);
                 break;
             }
@@ -182,15 +185,14 @@ function intersects(mass1, mass2)
 /*
     Выолняет симметрическую разность над двумя массивами
  */
-function symmetricDifference(mass1, mass2)
-{
+function symmetricDifference(mass1, mass2) {
     let mass3 = [];
-    for(let x = 0; x < mass1.length; x++)
-        if(countElements(mass2, mass1[x]) == 0)
+    for (let x = 0; x < mass1.length; x++)
+        if (countElements(mass2, mass1[x]) == 0)
             mass3.push(mass1[x]);
 
-    for(let x = 0; x < mass2.length; x++)
-        if(countElements(mass1, mass2[x]) == 0)
+    for (let x = 0; x < mass2.length; x++)
+        if (countElements(mass1, mass2[x]) == 0)
             mass3.push(mass2[x]);
     return mass3;
 }
@@ -213,16 +215,13 @@ function merge(mass1, mass2) {
 
 
 
-var format = 'cbc'
-
 
 /*
     Выполняет дополнение над данными, введёнными в поля на странице
 */
-function calculateAddition()
-{
+function calculateAddition() {
     let data = getStrings('mass1', 'mass2', 'outResult', format);
-    if(data[3] == false) return;
+    if (data[3] == false) return;
 
     let mass_1 = data[0];
     let mass_2 = data[1];
@@ -237,7 +236,7 @@ function calculateAddition()
 */
 function calculateIntersects() {
     let data = getStrings('mass1', 'mass2', 'outResult', format);
-    if(data[3] == false) return;
+    if (data[3] == false) return;
 
     let mass_1 = data[0];
     let mass_2 = data[1];
@@ -250,10 +249,9 @@ function calculateIntersects() {
 /*
     Выполняет симметричную разность над данными, введёнными в поля на странице
  */
-function calculateSymmetricDifference()
-{
+function calculateSymmetricDifference() {
     let data = getStrings('mass1', 'mass2', 'outResult', format);
-    if(data[3] == false) return;
+    if (data[3] == false) return;
 
     let mass_1 = data[0];
     let mass_2 = data[1];
@@ -266,30 +264,40 @@ function calculateSymmetricDifference()
 /*
     Выполняет объединение над данными, введёнными в поля на странице
 */
-function calculateMerge()
-{
+function calculateMerge() {
     let data = getStrings('mass1', 'mass2', 'outResult', format);
-    if(data[3] == false) return;
+    if (data[3] == false) return;
 
     //Объединение
     data[2].innerText = merge(data[0], data[1]);
 }
 
+
+var format = 'bcib'
+
 /*
     Основная функция где происходят вычисления
 */
-function calculate(id)
-{
+function calculate(id) {
     let data = getStrings('mass1', 'mass2', 'outResult', format);
-    if(data[3] == false) return;
+    if (data[3] == false) return;
 
-    switch(id)
-    {
-        case 0: data[2].innerText = addition(data[0], data[1]);            break; //Дополнение
-        case 1: data[2].innerText = intersects(data[0], data[1]);          break; //Пересечение
-        case 2: data[2].innerText = symmetricDifference(data[0], data[1]); break; //Симметрическая разность
-        case 3: data[2].innerText = merge(data[0], data[1]);               break;//Объединение
-        default: return; break;
+    switch (id) {
+        case 0:
+            data[2].innerText = merge(data[0], data[1]); //Объединение
+            break;
+        case 1:
+            data[2].innerText = symmetricDifference(data[0], data[1]); //Симметрическая разность
+            break;
+        case 2:
+            data[2].innerText = intersects(data[0], data[1]); //Пересечение
+            break;
+        case 3:
+            data[2].innerText = addition(data[0], data[1]); //Дополнение
+            break;
+        default:
+            return;
+            break;
     }
 
     return;

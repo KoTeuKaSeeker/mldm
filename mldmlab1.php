@@ -23,13 +23,13 @@
                 </tr>
 
                 <tr>
-                    <td><input type="button" class="button1" value="Объединение" onclick="calculateMerge();"></td>
-                    <td><input type="button" class="button1" value="Симметрическая разность" onclick="calculateSymmetricDifference();"></td>
+                    <td><input type="button" class="button1" value="Объединение" onclick="calculate(0);"></td>
+                    <td><input type="button" class="button1" value="Симметрическая разность" onclick="calculate(1);"></td>
                 </tr>
 
                 <tr>
-                    <td><input type="button" class="button1" value="Пересечение" onclick="calculateIntersects();"></td>
-                    <td><input type="button" class="button1" value="Дополнение" onclick="calculateAddition();"></td>
+                    <td><input type="button" class="button1" value="Пересечение" onclick="calculate(2);"></td>
+                    <td><input type="button" class="button1" value="Дополнение" onclick="calculate(3);"></td>
                 </tr>
             </table>
         </form>
