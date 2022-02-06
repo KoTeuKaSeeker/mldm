@@ -150,7 +150,7 @@ function removeRepetitions(mass) {
  */
 function addition(mass1, mass2)
 {
-    let mass3 = mass1.length > mass2.length ? mass1 : mass2; //Большее множество
+    let mass3 = mass1.length >= mass2.length ? mass1 : mass2; //Большее множество
     let massMin = mass1.length < mass2.length ? mass1 : mass2; //Меньшее множество
 
     for(let x = 0; x < mass3.length; x++)
@@ -271,10 +271,26 @@ function calculateMerge()
     let data = getStrings('mass1', 'mass2', 'outResult', format);
     if(data[3] == false) return;
 
-    let mass_1 = data[0];
-    let mass_2 = data[1];
-    let outResult = data[2];
-
     //Объединение
-    outResult.innerText = merge(mass_1, mass_2);
+    data[2].innerText = merge(data[0], data[1]);
+}
+
+/*
+    Основная функция где происходят вычисления
+*/
+function calculate(id)
+{
+    let data = getStrings('mass1', 'mass2', 'outResult', format);
+    if(data[3] == false) return;
+
+    switch(id)
+    {
+        case 0: data[2].innerText = addition(data[0], data[1]);            break; //Дополнение
+        case 1: data[2].innerText = intersects(data[0], data[1]);          break; //Пересечение
+        case 2: data[2].innerText = symmetricDifference(data[0], data[1]); break; //Симметрическая разность
+        case 3: data[2].innerText = merge(data[0], data[1]);               break;//Объединение
+        default: return; break;
+    }
+
+    return;
 }
