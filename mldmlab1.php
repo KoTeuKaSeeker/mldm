@@ -28,15 +28,10 @@
                     <td><input type="button" class="button1" value="Симметрическая разность" onclick="calculateSymmetricDifference();"></td>
                     <td><input type="button" class="button1" value="Дополнение" onclick="calculateAddition();"></td>
                 </tr>
-
-               <!-- <tr>
-                    <td>Введите матрицу</td>
-                    <td><textarea id="mass3" value="">Тут вводится матрица</textarea><br></td>
-                </tr>-->
             </table>
         </form>
 
-    <div id="outResult">123</div>
+    <div id="outResult"></div>
 
     </body>
 

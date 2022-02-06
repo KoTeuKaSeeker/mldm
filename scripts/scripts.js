@@ -29,41 +29,97 @@ function validateWords(words) {
         }
     return [result, id];
 }
+/*
+    Фукнция проверяет символ на соответвие введённому формату
+    c - цифра
+    b - буква
+    i - четная цифра
+    j - нечётная цифра
+*/
+function checkSymbolFormat(sym, symFormat) {
+    if ((symFormat == 'c') && (sym >= '0' && sym <= '9')) //Цифра
+        return true;
+    else if ((symFormat == 'b') && (sym >= 'a' && sym <= 'z')) //Буква
+        return true;
+    else if ((symFormat == 'i') && (sym >= '0' && sym <= '9') && sym % 2 == 0) //Чётная цифра
+        return true;
+    else if ((symFormat == 'j') && (sym >= '0' && sym <= '9') && sym % 2 == 1) //Нечётная цифра
+        return true;
+    return false;
+}
+
+/*
+    Проверяет, совподает ли слово word формату format
+*/
+function checkWordFormat(word, format)
+{
+    if(word.length != format.length)
+        return false;
+
+    for(let x = 0; x < word.length; x++)
+        if(!checkSymbolFormat(word[x], format[x]))
+            return false;
+    return true;
+}
+
+function checkWordsFormat(words, format)
+{
+    for(let x = 0; x < words.length; x++)
+        if(!checkWordFormat(words[x], format))
+            return false;
+    return true;
+}
+
 
 
 /*
     Выводит ошибку если строка пустая или если слово в строке начинается не с буквы
 */
-function checkMessage(str, id) {
+function checkMessage(str, id, format) {
+    let result = false;
+    let mass = [];
+    let errorMessage = '';
     if (validateString(str)) {
-        let mass = str.value.split(' ');
+        mass = str.value.split(' ');
+
+        /*
         let result = validateWords(mass);
         if (!result[0]) {
             alert('В массиве ' + id + ' cлова введены не правельно. Ошибка в ' + result[1]);
             return false;
         }
-
-        return mass;
+         */
+        if(checkWordsFormat(mass, format)) {
+            result = true;
+        } else {
+            errorMessage += 'Массив ' + id + ' имеет неподходящий формат. Формат должен быть вида ' + format +
+                  '. Здесь c - цифра, b - буква, i - чётная цифра, j - нечётная цифра\n\n';
+        }
     } else
-        alert('Массив ' + id + ' не должен быть пустым');
-    return false;
+        errorMessage += 'Массив ' + id + ' не должен быть\n\n';
+
+    return [mass, result, errorMessage];
 }
 
 /*
     Возвращает массивы, в которые ввелись данные из строчек, а также элемент,
     куда будет выводиться выходной результат
 */
-function getStrings(string1Id, string2Id, outStringId) {
+function getStrings(string1Id, string2Id, outStringId, format) {
     let a = document.getElementById(string1Id);
     let b = document.getElementById(string2Id);
     let outResult = document.getElementById(outStringId);
+    let result = true;
 
-    let mass1 = checkMessage(a, 1);
-    if (mass1 == false) return false;
-    let mass2 = checkMessage(b, 2);
-    if (mass2 == false) return false;
+    let result1 = checkMessage(a, 1, format);
+    if (result1[1] == false) result = false;
+    let result2 = checkMessage(b, 2, format);
+    if (result2[1] == false) result = false;
 
-    return [mass1, mass2, outResult];
+    if(result == false)
+        alert(result1[2] + result2[2]);
+
+    return [result1[0], result2[0], outResult, result];
 }
 
 /*
@@ -103,7 +159,6 @@ function addition(mass1, mass2)
             mass3.splice(x, 1);
             x--;
         }
-
     return mass3;
 }
 
@@ -120,6 +175,7 @@ function intersects(mass1, mass2)
                 mass3.push(mass1[x]);
                 break;
             }
+
     return mass3;
 }
 
@@ -146,13 +202,34 @@ function merge(mass1, mass2) {
     return removeRepetitions(mass1.concat(mass2));
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var format = 'cbc'
+
+
 /*
     Выполняет дополнение над данными, введёнными в поля на странице
 */
 function calculateAddition()
 {
-    let data = getStrings('mass1', 'mass2', 'outResult');
-    if(data == false) return;
+    let data = getStrings('mass1', 'mass2', 'outResult', format);
+    if(data[3] == false) return;
 
     let mass_1 = data[0];
     let mass_2 = data[1];
@@ -166,8 +243,8 @@ function calculateAddition()
     Выполняет пересечение над данными, введёнными в поля на странице
 */
 function calculateIntersects() {
-    let data = getStrings('mass1', 'mass2', 'outResult');
-    if(data == false) return;
+    let data = getStrings('mass1', 'mass2', 'outResult', format);
+    if(data[3] == false) return;
 
     let mass_1 = data[0];
     let mass_2 = data[1];
@@ -182,8 +259,8 @@ function calculateIntersects() {
  */
 function calculateSymmetricDifference()
 {
-    let data = getStrings('mass1', 'mass2', 'outResult');
-    if(data == false) return;
+    let data = getStrings('mass1', 'mass2', 'outResult', format);
+    if(data[3] == false) return;
 
     let mass_1 = data[0];
     let mass_2 = data[1];
@@ -198,8 +275,8 @@ function calculateSymmetricDifference()
 */
 function calculateMerge()
 {
-    let data = getStrings('mass1', 'mass2', 'outResult');
-    if(data == false) return;
+    let data = getStrings('mass1', 'mass2', 'outResult', format);
+    if(data[3] == false) return;
 
     let mass_1 = data[0];
     let mass_2 = data[1];
