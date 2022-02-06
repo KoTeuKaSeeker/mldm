@@ -14,18 +14,21 @@
             <table>
                 <tr>
                     <td>Первый массив</td>
-                    <td><input type="text" id="mass1" value="" size="150" /></td>
+                    <td><input type="text" id="mass1" value="" size="50" /></td>
                 </tr>
 
                 <tr>
                     <td>Второй массив</td>
-                    <td><input type="text" id="mass2" value="" size="150" /></td>
+                    <td><input type="text" id="mass2" value="" size="50" /></td>
+                </tr>
+
+                <tr>
+                    <td><input type="button" class="button1" value="Объединение" onclick="calculateMerge();"></td>
+                    <td><input type="button" class="button1" value="Симметрическая разность" onclick="calculateSymmetricDifference();"></td>
                 </tr>
 
                 <tr>
                     <td><input type="button" class="button1" value="Пересечение" onclick="calculateIntersects();"></td>
-                    <td><input type="button" class="button1" value="Объединение" onclick="calculateMerge();"></td>
-                    <td><input type="button" class="button1" value="Симметрическая разность" onclick="calculateSymmetricDifference();"></td>
                     <td><input type="button" class="button1" value="Дополнение" onclick="calculateAddition();"></td>
                 </tr>
             </table>
