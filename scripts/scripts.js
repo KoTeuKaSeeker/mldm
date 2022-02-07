@@ -172,6 +172,7 @@ function intersects(mass1, mass2) {
                 break;
             }
 
+    removeRepetitions(mass3);
     return mass3;
 }
 
@@ -266,7 +267,7 @@ function calculateMerge() {
 }
 
 
-var format = 'c'
+var format = 'bcib';
 
 /*
     Основная функция где происходят вычисления
