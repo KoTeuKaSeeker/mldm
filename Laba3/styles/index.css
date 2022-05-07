@@ -1,0 +1,80 @@
+html
+{
+    box-sizing: border-box;
+}
+
+*, *:after, *:before
+{
+    box-sizing: border-box;
+}
+
+.jetBrainsHeaderFont
+{
+    font-family: JetBrains Sans,Helvetica,Arial,sans-serif;
+}
+
+.jetBrainsFont
+{
+    font-family: var(--rs-font-family-ui,var(--rs-font-family-jb-sans,"JetBrains Sans",Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Droid Sans","Helvetica Neue",Arial,sans-serif));
+}
+
+body
+{
+    background-image: url("../images/bg.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.headerText
+{
+    color: white;
+    font-size: 18px;
+}
+
+.defaultText
+{
+    color: white;
+    font-size: 14px;
+}
+
+.container
+{
+    padding: 10px;
+    margin-bottom: 10px;
+    width: auto;
+}
+
+.backgroundContainer
+{
+    background-color: rgba(109, 183, 216, 0.5);
+}
+
+.button
+{
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    user-select: none;
+    padding: .5em 2em;
+    outline: none;
+    border: 2px solid;
+    border-radius: 1px;
+    transition: 0.2s;
+    background-color: rgba(25, 25, 25, 0.7);
+    font-size: 20px;
+}
+
+.button:hover
+{
+    background: rgba(255,255,255,.2);
+}
+.button:active
+{
+    background: rgba(100, 100, 100,.2);
+}
+
+.buttonOffset
+{
+    margin-top: 10px;
+}

@@ -1,0 +1,80 @@
+body
+{
+    background-image: url("../images/bg.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.graphPosNumber
+{
+    width: 50px;
+}
+
+.resultMargin{
+    margin: 10px;
+}
+
+/* Общие стили */
+.jetBrainsHeaderFont
+{
+    font-family: JetBrains Sans,Helvetica,Arial,sans-serif;
+}
+
+.jetBrainsFont
+{
+    font-family: var(--rs-font-family-ui,var(--rs-font-family-jb-sans,"JetBrains Sans",Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Droid Sans","Helvetica Neue",Arial,sans-serif));
+}
+
+.headerText
+{
+    color: white;
+    font-size: 25px;
+}
+
+.regularText
+{
+    color: white;
+    font-size: 14px;
+}
+
+.button
+{
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    user-select: none;
+    padding: .5em 2em;
+    outline: none;
+    border: 2px solid;
+    border-radius: 1px;
+    transition: 0.2s;
+    background-color: rgba(25, 25, 25, 0.7);
+    font-size: 18px;
+}
+
+.button:hover
+{
+    background: rgba(255,255,255,.2);
+}
+.button:active
+{
+    background: rgba(100, 100, 100,.2);
+}
+
+.container
+{
+    padding: 10px;
+    margin: 10px;
+}
+
+.offset
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.backgroundContainer
+{
+    background-color: rgba(25, 25, 25, 0.7);
+}
