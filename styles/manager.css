@@ -98,3 +98,9 @@ body
 {
     background-color: rgba(25, 25, 25, 0.7);
 }
+
+.wrapContent
+{
+    display:flex;
+    flex-wrap: wrap;
+}

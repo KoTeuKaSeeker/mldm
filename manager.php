@@ -12,13 +12,13 @@
             <div class="container horFullSize centerPosition backgroundContainer">
                 <div class="jetBrainsHeaderFont headerText">Лабораторные работы по МЛиДМ</div>
             </div>
-            <div class="centerPosition">
+            <div class="centerPosition wrapContent">
                 <button class="button buttonMargin" onclick="document.location = 'Laba1/mldmlab1.php'">Лабораторная работа 1</button>
                 <button class="button buttonMargin" onclick="document.location = 'Laba2/index.php'">Лабораторная работа 2</button>
                 <button class="button buttonMargin" onclick="document.location = 'Laba3/index.php'">Лабораторная работа 3</button>
             </div>
 
-            <div class="container centerPosition">
+            <div class="container centerPosition wrapContent">
                 <button class="button buttonMargin" onclick="document.location = 'Laba4/index.php'">Лабораторная работа 4</button>
                 <button class="button buttonMargin" onclick="document.location = 'Laba5/index.php'">Лабораторная работа 5</button>
             </div>
