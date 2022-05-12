@@ -32,7 +32,11 @@
 
         <div class="container backgroundContainer">
             <div class="regularText jetBrainsFont">Введите матрицу смежности</div>
-            <textarea class="backgroundContainer regularText jetBrainsFont" rows="5" cols="40" name="matrix" id="matrix"></textarea><br>
+            <textarea class="backgroundContainer regularText jetBrainsFont" rows="5" cols="40" name="matrix" id="matrix"
+            placeholder="Пример ввода:
+1 0 1
+0 0 0
+0 1 0"></textarea><br>
         </div>
 
         <div class="container">
