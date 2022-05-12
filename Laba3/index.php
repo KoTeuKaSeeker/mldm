@@ -16,17 +16,17 @@
 
             <div>
                 <div class="jetBrainsFont defaultText">Элементы первого множества</div>
-                <input id="setA" type="text" size="40" class="jetBrainsFont">
+                <input id="setA" type="text" size="40" class="jetBrainsFont" placeholder="a b c d">
             </div>
 
             <div>
                 <div class="jetBrainsFont defaultText">Элементы второго множества</div>
-                <input id="setB" type="text" size="40" class="jetBrainsFont">
+                <input id="setB" type="text" size="40" class="jetBrainsFont" placeholder="1 2 3 4">
             </div>
 
             <div>
                 <div class="jetBrainsFont defaultText">Отношение</div>
-                <input id="ratio" type="text" size="40" class="jetBrainsFont">
+                <input id="ratio" type="text" size="40" class="jetBrainsFont" placeholder="a 1, b 2, c 3, d 4">
             </div>
 
             <div class="buttonOffset">
