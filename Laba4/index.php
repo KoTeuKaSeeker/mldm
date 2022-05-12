@@ -31,8 +31,13 @@
         </div>
 
         <div class="container backgroundContainer">
-            <div class="regularText jetBrainsFont">Введите матрицу смежности</div>
-            <textarea class="backgroundContainer regularText jetBrainsFont" rows="5" cols="40" name="matrix" id="matrix"></textarea><br>
+            <div class="regularText jetBrainsFont">Введите матрицу смежности (нет пути обозначается знаком *)</div>
+            <textarea class="backgroundContainer regularText jetBrainsFont" rows="5" cols="40" name="matrix" id="matrix"
+                      placeholder="Пример ввода:
+1 * 1
+* * *
+* 1 *"
+            ></textarea><br>
             <input class="offset graphPosNumber backgroundContainer jetBrainsFont regularText" id="start" type="number" size="5" step="1" min="0" placeholder="От">
             <input class="offset graphPosNumber backgroundContainer jetBrainsFont regularText" id="end" type="number" size="5" step="1" min="0" placeholder="До">
         </div>
