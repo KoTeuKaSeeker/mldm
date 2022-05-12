@@ -1,6 +1,11 @@
 function getPairElements(text)
 {
     let isRight = true;
+    //Проверка на наличие элементов
+    if(text.value == "") {
+        alert("Должна быть введена хотя бы одна пара");
+        isRight = false;
+    }
     let matrixElements = text.value.split(", ");
     let matrixPairs = new Array(matrixElements.length);
     for(let x = 0; x < matrixElements.length; x++) {

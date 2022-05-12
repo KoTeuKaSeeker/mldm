@@ -15,7 +15,8 @@
         <div class="contentBackground">
             <div class="jetBrainsFont defaultText">Введите пары элементов</div>
             <div class="textField">
-                <input id="textField" type="text" size="40" style="jetBrainsFont defaultText">
+                <input id="textField" type="text" size="40" class="jetBrainsFont" placeholder="
+a b, c d">
             </div>
 
             <div class="textField">
